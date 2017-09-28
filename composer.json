@@ -15,11 +15,22 @@
       "email": "luca.realdi@opencontent.it"
     }
   ],
-  "require-dev": {
-    "endouble/symfony3-custom-coding-standard": "^2.10"
-  },
   "require": {
-    "italia/spid-simplesamlphp": "1.14.*"
+    "italia/spid-simplesamlphp": "1.14.*",
+    "symfony/framework-bundle": "~2.7|~3.0",
+    "symfony/console": "~2.7|~3.0",
+    "symfony/process": "~2.7|~3.0",
+    "symfony/yaml": "~2.7|~3.0",
+    "twig/twig": "^1.28.2|^2.0"
+  },
+  "require-dev": {
+    "endouble/symfony3-custom-coding-standard": "^2.10",
+    "symfony/doctrine-bridge": "~2.7|~3.0",
+    "symfony/filesystem": "~2.7|~3.0",
+    "symfony/phpunit-bridge": "^3.3",
+    "symfony/symfony": "3.*",
+    "doctrine/orm": "~2.4",
+    "phpunit/phpunit": "^6.3"
   },
   "autoload": {
     "psr-4": {

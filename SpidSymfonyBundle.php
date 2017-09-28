@@ -1,10 +1,12 @@
 <?php
 namespace Italia\SpidSymfonyBundle;
 
+use Symfony\Component\HttpKernel\Bundle\Bundle;
+
 /**
  * Class SpidSymfonyBundle
  */
-class SpidSymfonyBundle
+class SpidSymfonyBundle extends Bundle
 {
 
 }
