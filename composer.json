@@ -12,7 +12,7 @@
     }
   ],
   "require": {
-    "italia/spid-php-lib": "dev-master",
+    "italia/spid-php-lib": "dev-master#b8fb960a39f8febf92fc9ea32df6e637fbbdccb7 as 1.0",
     "symfony/framework-bundle": "~2.7|~3.0",
     "symfony/console": "~2.7|~3.0",
     "symfony/process": "~2.7|~3.0",
@@ -36,7 +36,7 @@
   "repositories": [
     {
       "type": "vcs",
-      "url": "git@github.com:italia/spid-php-lib.git"
+      "url": "https://github.com/italia/spid-php-lib"
     }
   ]
 }
