@@ -10,11 +10,11 @@ Aggiungere al proprio composer.json i repository necessari (fino alla pubblicazi
     ...
     {
       "type": "vcs",
-      "url": "git@github.com:italia/spid-php-symfony.git"
+      "url": "git@github.com:italia/spid-symfony-bundle.git"
     },
     {
       "type": "vcs",
-      "url": "git@github.com:italia/spid-simplesamlphp.git"
+      "url": "git@github.com:italia/spid-php-lib.git"
     }
   ]
 ...  
@@ -24,7 +24,7 @@ Installare il repository tramite composer usando il branch master finché non sa
 
 
 ```
-composer require italia/spid-simfonybundle 
+composer require italia/spid-simfony-bundle 
 ```
 
 ## Step 3:

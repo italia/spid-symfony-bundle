@@ -1,22 +1,18 @@
 {
-  "name": "italia/spid-symfonybundle",
-  "description": "A Bundle to make Symfony3 capable of using SPID authentication, based on italia/spid-simplesamlphp",
+  "name": "italia/spid-symfony-bundle",
+  "description": "A Bundle to make Symfony3 capable of using SPID authentication, based on italia/spid-php-lib",
   "type": "project",
   "keywords": [ "saml2", "shibboleth","oauth","ws-federation","sp","idp", "spid" ],
-  "homepage": "https://github.com/italia/spid-php-symfony",
+  "homepage": "https://github.com/italia/spid-symfony-bundle",
   "license": "GPL-3",
   "authors": [
     {
       "name": "Marco Albarelli",
       "email": "info@marcoalbarelli.eu"
-    },
-    {
-      "name": "Luca Realdi",
-      "email": "luca.realdi@opencontent.it"
     }
   ],
   "require": {
-    "italia/spid-simplesamlphp": "1.14.*",
+    "italia/spid-php-lib": "dev-master",
     "symfony/framework-bundle": "~2.7|~3.0",
     "symfony/console": "~2.7|~3.0",
     "symfony/process": "~2.7|~3.0",
@@ -40,7 +36,7 @@
   "repositories": [
     {
       "type": "vcs",
-      "url": "git@github.com:italia/spid-simplesamlphp.git"
+      "url": "git@github.com:italia/spid-php-lib.git"
     }
   ]
 }
