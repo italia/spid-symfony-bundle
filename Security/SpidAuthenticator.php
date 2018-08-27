@@ -1,7 +1,7 @@
 <?php
 
 namespace Italia\SpidSymfonyBundle\Security;
-use Italia\SpidSymfonyBundle\Entity\SpidUserProvider;
+use Italia\Spid\Spid\Session;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\Security\Core\Authentication\Token\TokenInterface;
@@ -15,13 +15,6 @@ use Symfony\Component\Security\Guard\AbstractGuardAuthenticator;
  */
 class SpidAuthenticator extends AbstractGuardAuthenticator
 {
-
-    /**
-     * SpidAuthenticator constructor.
-     */
-    public function __construct()
-    {
-    }
 
     /**
      * @param Request                      $request
@@ -39,29 +32,28 @@ class SpidAuthenticator extends AbstractGuardAuthenticator
      */
     public function getCredentials(Request $request)
     {
-        $data = self::createUserDataFromRequest($request);
-        if ($data["codiceFiscale"] === null) {
+        if(!isset($_SESSION['spidSession']) ||
+           !($_SESSION['spidSession'] instanceof Session) ||
+           !isset($_SESSION['spidSession']->idp) ||
+           !isset($_SESSION['spidSession']->level) ||
+           !isset($_SESSION['spidSession']->attributes)
+        ) {
             return null;
         }
 
-        return $data;
+        return $_SESSION['spidSession'];
     }
 
     /**
      * @param mixed                 $credentials
      * @param UserProviderInterface $userProvider
      *
-     * @return CPSUser
+     * @return UserInterface
      * @throws \InvalidArgumentException
      */
-    public function getUser($credentials, UserProviderInterface $userProvider)
+    public function getUser($credentials, UserProviderInterface $userProvider): UserInterface
     {
-        if ($userProvider instanceof SpidUserProvider) {
-            return $userProvider->provideUser($credentials);
-        }
-        throw new \InvalidArgumentException(
-            sprintf("UserProvider for SpidAuthenticator must be a %s instance", SpidUserProvider::class)
-        );
+        return $userProvider->loadUserByUsername($credentials->attributes['fiscalNumber']);
     }
 
     /**
@@ -94,7 +86,7 @@ class SpidAuthenticator extends AbstractGuardAuthenticator
      */
     public function onAuthenticationSuccess(Request $request, TokenInterface $token, $providerKey)
     {
-        return null;
+            return null;
     }
 
     /**

@@ -50,3 +50,23 @@ class AppKernel extends Kernel
     // ...
 }
 ```
+
+
+# WIP
+
+Il bundle offre due classi astratte
+Nel security.yml mettere
+security:
+  providers:
+  firewalls
+    spid:
+      pattern: /il/vostro/pattern/
+      guard:
+        provider: spid
+        authenticators:
+          - ocsdc.cps.token_authenticator
+          
+ai servizi aggiungere
+  spid.token_authenticator:
+    class: \Italia\SpidSymfonyBundle\Security\SpidAuthenticator
+                  

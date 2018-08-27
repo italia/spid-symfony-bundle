@@ -1,0 +1,24 @@
+spid_metadata:
+  path: /metadata
+  defaults: { _controller: SpidSymfonyBundle:Security:metadata }
+  methods:
+    - 'GET'
+
+spid_acs:
+  path: /acs
+  defaults: { _controller: SpidSymfonyBundle:Security:acs }
+  methods:
+    - 'POST'
+
+spid_chooseidp:
+  path: /idp
+  defaults: { _controller: SpidSymfonyBundle:Security:chooseidp }
+  methods:
+    - 'GET'
+
+spid_login:
+  path: /login/{idp}
+  defaults: { _controller: SpidSymfonyBundle:Security:login }
+  methods:
+    - 'GET'
+
