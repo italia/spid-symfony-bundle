@@ -55,25 +55,17 @@ class SecurityController extends Controller
      * @return Sp
      */
     private function getSPClientInstance(): Sp {
-        /**
-         * TODO: pass the configuration in a better way
-         */
-        $base = $this->container->getParameter('sp_entityid');
+        $base = $this->container->getParameter('spid.sp_entityid');
         $configuration = [
-            'sp_entityid' => $this->container->getParameter('sp_entityid'),
-            'sp_key_file' => $this->container->getParameter('sp_key_file'),
-            'sp_cert_file' => $this->container->getParameter('sp_cert_file'),
-            'sp_assertionconsumerservice' => [
-                $base . '/acs'
-            ],
-            'sp_singlelogoutservice' => $base . '/slo',
-            'sp_org_name' => $this->container->getParameter('sp_org_name'),
-            'sp_org_display_name' => $this->container->getParameter('sp_org_display_name'),
-            'idp_metadata_folder' => $this->container->getParameter('idp_metadata_folder').DIRECTORY_SEPARATOR,
-            'sp_attributeconsumingservice' => [
-                ["name", "familyName", "fiscalNumber", "email"],
-                ["name", "familyName", "fiscalNumber", "email", "spidCode"]
-            ]
+            'sp_entityid' => $this->container->getParameter('spid.sp_entityid'),
+            'sp_key_file' => $this->container->getParameter('spid.sp_key_file'),
+            'sp_cert_file' => $this->container->getParameter('spid.sp_cert_file'),
+            'sp_assertionconsumerservice' => $this->container->getParameter('spid.sp_assertionconsumerservice'),
+            'sp_singlelogoutservice' => $this->container->getParameter('spid.sp_singlelogoutservice'),
+            'sp_org_name' => $this->container->getParameter('spid.sp_org_name'),
+            'sp_org_display_name' => $this->container->getParameter('spid.sp_org_display_name'),
+            'idp_metadata_folder' => $this->container->getParameter('spid.idp_metadata_folder').DIRECTORY_SEPARATOR,
+            'sp_attributeconsumingservice' => $this->container->getParameter('spid.sp_attributeconsumingservice'),
         ];
 
         return new Sp($configuration);
