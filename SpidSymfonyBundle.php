@@ -1,6 +1,7 @@
 <?php
 namespace Italia\SpidSymfonyBundle;
 
+use Italia\SpidSymfonyBundle\DependencyInjection\SpidSymfonyExtension;
 use Symfony\Component\HttpKernel\Bundle\Bundle;
 
 /**
@@ -8,5 +9,8 @@ use Symfony\Component\HttpKernel\Bundle\Bundle;
  */
 class SpidSymfonyBundle extends Bundle
 {
-
+    public function getContainerExtension()
+    {
+        return new SpidSymfonyExtension();
+    }
 }

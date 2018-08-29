@@ -5,6 +5,7 @@
   "keywords": [ "saml2", "shibboleth","oauth","ws-federation","sp","idp", "spid" ],
   "homepage": "https://github.com/italia/spid-symfony-bundle",
   "license": "GPL-3",
+  "minimum-stability": "dev",
   "authors": [
     {
       "name": "Marco Albarelli",
@@ -12,6 +13,7 @@
     }
   ],
   "require": {
+    "php": ">=7.0",
     "italia/spid-php-lib": "dev-master#b8fb960a39f8febf92fc9ea32df6e637fbbdccb7 as 1.0",
     "symfony/framework-bundle": "~2.7|~3.0",
     "symfony/console": "~2.7|~3.0",

@@ -2,3 +2,4 @@
 *.retry
 .vagrant/
 vendor/
+composer.lock
