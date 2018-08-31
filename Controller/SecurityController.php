@@ -13,7 +13,9 @@ class SecurityController extends Controller
 {
     public function metadataAction()
     {
-        return new Response($this->getSPClientInstance()->getSPMetadata());
+        $response = new Response($this->getSPClientInstance()->getSPMetadata());
+        $response->headers->set('Content-Type', 'xml');
+        return $response;
     }
 
     public function acsAction(Request $request)
