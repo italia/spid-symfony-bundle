@@ -1,3 +1,19 @@
+parameters:
+
 services:
     spid.authenticator:
         class: Italia\SpidSymfonyBundle\Security\SpidAuthenticator
+        
+    spid.configuredSPClient:
+        class: Italia\Spid\Sp
+        arguments:
+            -
+             sp_entityid: '%spid.sp_entityid%'
+             sp_key_file: '%spid.sp_key_file%'
+             sp_cert_file: '%spid.sp_cert_file%'
+             sp_assertionconsumerservice: '%spid.sp_assertionconsumerservice%'
+             sp_singlelogoutservice: '%spid.sp_singlelogoutservice%'
+             sp_org_name: '%spid.sp_org_name%'
+             sp_org_display_name: '%spid.sp_org_display_name%'
+             idp_metadata_folder: '%spid.idp_metadata_folder%/'
+             sp_attributeconsumingservice: '%spid.sp_attributeconsumingservice%'
