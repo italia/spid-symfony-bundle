@@ -32,15 +32,6 @@ class SpidAuthenticator extends AbstractGuardAuthenticator
      */
     public function getCredentials(Request $request)
     {
-        if(!isset($_SESSION['spidSession']) ||
-           !($_SESSION['spidSession'] instanceof Session) ||
-           !isset($_SESSION['spidSession']->idp) ||
-           !isset($_SESSION['spidSession']->level) ||
-           !isset($_SESSION['spidSession']->attributes)
-        ) {
-            return null;
-        }
-
         return $_SESSION['spidSession'];
     }
 
@@ -86,7 +77,7 @@ class SpidAuthenticator extends AbstractGuardAuthenticator
      */
     public function onAuthenticationSuccess(Request $request, TokenInterface $token, $providerKey)
     {
-            return null;
+        return null;
     }
 
     /**
@@ -96,5 +87,19 @@ class SpidAuthenticator extends AbstractGuardAuthenticator
     public function supportsRememberMe()
     {
         return false;
+    }
+
+    public function supports(Request $request): bool
+    {
+        if (!isset($_SESSION['spidSession']) ||
+                !($_SESSION['spidSession'] instanceof Session) ||
+                !isset($_SESSION['spidSession']->idp) ||
+                !isset($_SESSION['spidSession']->level) ||
+                !isset($_SESSION['spidSession']->attributes)
+        ) {
+            return false;
+        } else {
+            return true;
+        }
     }
 }
