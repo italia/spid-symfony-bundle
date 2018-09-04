@@ -4,12 +4,6 @@ spid_metadata:
   methods:
     - 'GET'
 
-spid_acs:
-  path: /acs
-  defaults: { _controller: SpidSymfonyBundle:Security:acs }
-  methods:
-    - 'POST'
-
 spid_chooseidp:
   path: /idp
   defaults: { _controller: SpidSymfonyBundle:Security:chooseidp }
