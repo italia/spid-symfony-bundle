@@ -4,7 +4,7 @@
   "type": "project",
   "keywords": [ "saml2", "shibboleth","oauth","ws-federation","sp","idp", "spid" ],
   "homepage": "https://github.com/italia/spid-symfony-bundle",
-  "license": "GPL-3",
+  "license": "BSD-3-Clause",
   "minimum-stability": "dev",
   "authors": [
     {
