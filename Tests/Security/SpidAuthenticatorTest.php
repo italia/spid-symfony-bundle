@@ -28,18 +28,6 @@ class SpidAuthenticatorTest extends TestCase
     /**
      * @test
      */
-    public function testIGetAnExceptionIfUserProviderIsNotASpidUserProvider()
-    {
-        $this->expectException(\InvalidArgumentException::class);
-
-        $authenticator = new SpidAuthenticator();
-        $wrongProvider = $mockLogger = $this->getMockBuilder(UserProviderInterface::class)->getMock();
-        $authenticator->getUser([], $wrongProvider);
-    }
-
-    /**
-     * @test
-     */
     public function testOnAuthenticationFailureReturnsResponse()
     {
         $authenticator = new SpidAuthenticator();
