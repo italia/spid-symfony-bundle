@@ -1,11 +1,11 @@
 {
   "name": "italia/spid-symfony-bundle",
   "description": "A Bundle to make Symfony3 capable of using SPID authentication, based on italia/spid-php-lib",
-  "type": "project",
-  "keywords": [ "saml2", "shibboleth","oauth","ws-federation","sp","idp", "spid" ],
+  "type": "bundle",
+  "keywords": [ "oauth","ws-federation","sp","idp", "spid" ],
   "homepage": "https://github.com/italia/spid-symfony-bundle",
   "license": "BSD-3-Clause",
-  "minimum-stability": "dev",
+  "minimum-stability": "stable",
   "authors": [
     {
       "name": "Marco Albarelli",
@@ -14,19 +14,19 @@
   ],
   "require": {
     "php": ">=7.0",
-    "italia/spid-php-lib": "^0.10.0",
     "symfony/framework-bundle": "~2.7|~3.0|~4.0",
     "symfony/console": "~2.7|~3.0|~4.0",
     "symfony/process": "~2.7|~3.0|~4.0",
     "symfony/yaml": "~2.7|~3.0|~4.0",
-    "twig/twig": "^1.28.2|^2.0"
+    "twig/twig": "^1.28.2|^2.0",
+    "italia/spid-php-lib": "^0.12.0"
   },
   "require-dev": {
     "endouble/symfony3-custom-coding-standard": "^2.10",
     "symfony/doctrine-bridge": "~2.7|~3.0",
     "symfony/filesystem": "~2.7|~3.0",
     "symfony/phpunit-bridge": "^3.3",
-    "symfony/symfony": "3.*",
+    "symfony/symfony": "3.4.*",
     "doctrine/orm": "~2.4",
     "phpunit/phpunit": "^6.3"
   },
@@ -34,11 +34,5 @@
     "psr-4": {
       "Italia\\SpidSymfonyBundle\\": ""
     }
-  },
-  "repositories": [
-    {
-      "type": "vcs",
-      "url": "https://github.com/italia/spid-php-lib"
-    }
-  ]
+  }
 }
