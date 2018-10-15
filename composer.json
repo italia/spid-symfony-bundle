@@ -19,7 +19,7 @@
     "symfony/process": "~2.7|~3.0|~4.0",
     "symfony/yaml": "~2.7|~3.0|~4.0",
     "twig/twig": "^1.28.2|^2.0",
-    "italia/spid-php-lib": "^0.12.0"
+    "italia/spid-php-lib": "^0.20.0"
   },
   "require-dev": {
     "endouble/symfony3-custom-coding-standard": "^2.10",

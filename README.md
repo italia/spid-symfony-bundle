@@ -9,26 +9,11 @@ Vengono messe a disposizione delle rotte e dei servizi che possono essere facilm
 Una necessità tipica che non viene implementata da questo bundle è la necessità di salvare i dati dell'utente che arrivano tramite SPID. 
 
 # Installazione
-## Step 1:
-
-Aggiungere al proprio composer.json i repository necessari (fino alla pubblicazione su packagist)
-```json
-...
-"repositories": [
-    ...
-    {
-      "type": "vcs",
-      "url": "https://github.com/italia/spid-symfony-bundle"
-    }
-  ]
-...  
-```
 ## Step 2:
-Installare il repository tramite composer usando il branch master finché non sarà fatto un rilascio ufficiale
-
+Installare il repository tramite composer
 
 ```bash
-composer require italia/spid-simfony-bundle:dev-master
+composer require italia/spid-simfony-bundle
 ```
 
 ## Step 3:
@@ -90,7 +75,8 @@ spid_symfony:
   sp_entityid: 'http://some.site.it'
   sp_key_file: '%kernel.root_dir%/../example/sp.key'
   sp_cert_file: '%kernel.root_dir%/../example/sp.crt'
-  sp_singlelogoutservice: 'http://some.site.it/slo'
+  sp_singlelogoutservice: 
+    - [ 'http://some.site.it/slo', '' ]
   sp_org_name: 'dev-system'
   sp_attributeconsumingservice:
     - ["name", "familyName", "fiscalNumber", "email"]
