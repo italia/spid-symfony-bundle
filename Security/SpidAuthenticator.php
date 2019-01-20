@@ -100,10 +100,9 @@ class SpidAuthenticator extends AbstractGuardAuthenticator
     public function supports(Request $request): bool
     {
         if (!isset($_SESSION['spidSession']) ||
-                !($_SESSION['spidSession'] instanceof Session) ||
-                !isset($_SESSION['spidSession']->idp) ||
-                !isset($_SESSION['spidSession']->level) ||
-                !isset($_SESSION['spidSession']->attributes)
+            !isset($_SESSION['spidSession']['idp']) ||
+            !isset($_SESSION['spidSession']['level']) ||
+            !isset($_SESSION['spidSession']['attributes'])
         ) {
             return false;
         } else {
