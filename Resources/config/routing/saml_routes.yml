@@ -11,8 +11,14 @@ spid_chooseidp:
     - 'GET'
 
 spid_login:
-  path: /login/{idp}
+  path: /login
   defaults: { _controller: SpidSymfonyBundle:Security:login }
   methods:
     - 'GET'
+    -
+spid_acs:
+  path: /acs
+  defaults: { _controller: SpidSymfonyBundle:Security:acs }
+  methods:
+    - 'POST'
 

@@ -2,8 +2,10 @@
 
 namespace Italia\SpidSymfonyBundle\Security;
 use Italia\Spid\Spid\Session;
+use Symfony\Component\HttpFoundation\RedirectResponse;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
+use Symfony\Component\Routing\RouterInterface;
 use Symfony\Component\Security\Core\Authentication\Token\TokenInterface;
 use Symfony\Component\Security\Core\Exception\AuthenticationException;
 use Symfony\Component\Security\Core\User\UserInterface;
@@ -12,9 +14,15 @@ use Symfony\Component\Security\Guard\AbstractGuardAuthenticator;
 
 /**
  * Class SpidAuthenticator
+ * @property RouterInterface $router
  */
 class SpidAuthenticator extends AbstractGuardAuthenticator
 {
+
+    public function __construct(RouterInterface $router)
+    {
+        $this->router = $router;
+    }
 
     /**
      * @param Request                      $request
@@ -23,7 +31,7 @@ class SpidAuthenticator extends AbstractGuardAuthenticator
      */
     public function start(Request $request, AuthenticationException $authException = null)
     {
-        return new Response('Authentication Required', 401);
+        return new RedirectResponse($this->router->generate('spid_chooseidp'));
     }
 
     /**

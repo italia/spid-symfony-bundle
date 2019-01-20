@@ -1,0 +1,43 @@
+{% extends '::base.html.twig' %}
+
+{% block content_container %}
+    {{ parent() }}
+    <div class="row">
+        <div id="spid-button">
+            <noscript>
+                Il login tramite SPID richiede che JavaScript sia abilitato nel browser.
+            </noscript>
+        </div>
+    </div>
+
+{% endblock %}
+
+{% block stylesheets %}
+    {{ parent() }}
+    <link type="text/css" href="{{ asset('bundles/spidsymfony/css/spid-button.min.css') }}"/>
+{% endblock %}
+
+{% block javascripts %}
+{{ parent() }}
+
+<script type="text/javascript" src="{{ asset('bundles/spidsymfony/js/spid-button.min.js') }}"></script>
+<script type="text/javascript">
+    {# Documentation available at https://github.com/italia/spid-smart-button #}
+    window.onload = function () {
+      SPID.init({
+        url: '/login?idp={% verbatim %}{{idp}}{% endverbatim %}',
+        supported: [
+          'https://loginspid.aruba.it',
+          'https://identity.infocert.it',
+          'https://posteid.poste.it',
+          'https://identity.sieltecloud.it',
+          'https://login.id.tim.it/affwebservices/public/saml2sso',
+          'https://idp.namirialtsp.com/idp',
+          'https://spid.register.it',
+          'https://spid.intesa.it',
+          'https://id.lepida.it/idp/shibboleth',
+        ]
+      })
+    }
+</script>
+{% endblock %}

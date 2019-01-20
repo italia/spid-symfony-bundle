@@ -1,0 +1,13 @@
+{% extends '::base.html.twig' %}
+
+{% block content_container %}
+    <h1>Welcome {{ app.user.username }}</h1>
+    {% for k,a in attribues %}
+        <span>{{ k }}: {{ a }}</span>
+    {% endfor %}
+{% endblock %}
+
+{% block stylesheets %}
+
+{% endblock %}
+
