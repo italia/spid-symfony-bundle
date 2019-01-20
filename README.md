@@ -9,29 +9,13 @@ Vengono messe a disposizione delle rotte e dei servizi che possono essere facilm
 Una necessità tipica che non viene implementata da questo bundle è la necessità di salvare i dati dell'utente che arrivano tramite SPID. 
 
 # Installazione
-## Step 1:
-
-Aggiungere al proprio composer.json i repository necessari (fino alla pubblicazione su packagist)
-```json
-...
-"repositories": [
-    ...
-    {
-      "type": "vcs",
-      "url": "https://github.com/italia/spid-symfony-bundle"
-    }
-  ]
-...  
-```
-## Step 2:
-Installare il repository tramite composer usando il branch master finché non sarà fatto un rilascio ufficiale
-
+## Step 1: Installazione e configurazione
+Installare il repository tramite composer
 
 ```bash
-composer require italia/spid-simfony-bundle:dev-master
+composer require italia/spid-simfony-bundle
 ```
 
-## Step 3:
 Abilitare il bundle aggiungendolo all' `AppKernel`
 
 ```php
@@ -54,8 +38,6 @@ class AppKernel extends Kernel
     // ...
 }
 ```
-## Step 4:
-
 Configurare il security.yml per usare l'authenticator e lo user provider
 
 ```yaml
@@ -73,8 +55,6 @@ security:
 ```
 Il guardAuthenticator proposto è molto basilare, va esteso secondo le necessità del progetto                  
 
-## Step 5:
-
 Includere il routing se si vogliono usare le rotte di default
 ```yaml
 spid_security:
@@ -82,7 +62,6 @@ spid_security:
 ```
 Prestare attenzione alla rotta `acs` che deve ovviamente coincidere con la rotta esposta
 
-## Step 6:
 
 Aggiungere la configurazione del bundle:
 ```yaml
@@ -90,7 +69,8 @@ spid_symfony:
   sp_entityid: 'http://some.site.it'
   sp_key_file: '%kernel.root_dir%/../example/sp.key'
   sp_cert_file: '%kernel.root_dir%/../example/sp.crt'
-  sp_singlelogoutservice: 'http://some.site.it/slo'
+  sp_singlelogoutservice: 
+    - [ 'http://some.site.it/slo', '' ]
   sp_org_name: 'dev-system'
   sp_attributeconsumingservice:
     - ["name", "familyName", "fiscalNumber", "email"]
@@ -100,3 +80,17 @@ spid_symfony:
   sp_org_display_name: 'Sistema di Sviluppo'
   idp_metadata_folder: '%kernel.root_dir%/../example/idp_metadata'
 ```
+
+## Step 2: (opzionale) salvataggio dell'utente 
+Se necessario è possibile salvare l'utente recuperato tramite PISD. Il punto più logico dove farlo è dentro l'Authenticator fornito, facendo override del metodo `getUser` e sfruttando i dati contenuti in `$credentials` per istanziare un nuovo utente da persistere
+
+
+## Overrides:
+Il template di login può essere sovrascritto mettendo il proprio in `app/Resources/SpidSymfonyBundle/views/Security/chooseidp.html.twig`
+Per la documentazione relativa al pulsante SPID standard fare riferimento a https://github.com/italia/spid-smart-button
+Ce n'è una versione disponibile nel bundle per comodità di test in fase di sviluppo, la versione fornita va sostituita con quella valida al momento della messa in produzione.
+
+Il pulsante fornito con questo bundle non è garantito come valido o funzionante
+
+## IDP
+Per configurare l'IDP di test fare riferimento a https://github.com/italia/spid-testenv2  
