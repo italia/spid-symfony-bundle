@@ -70,7 +70,7 @@ class SecurityController extends Controller
     public function acsAction(Request $request)
     {
         if ($this->sp->isAuthenticated()) {
-            return ['attributes' => $sp->getAttributes()];
+            return ['attributes' => $this->sp->getAttributes()];
         }
         return new Response("Unauthenticated", 401);
     }
