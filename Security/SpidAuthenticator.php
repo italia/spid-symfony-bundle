@@ -52,7 +52,7 @@ class SpidAuthenticator extends AbstractGuardAuthenticator
      */
     public function getUser($credentials, UserProviderInterface $userProvider): UserInterface
     {
-        return $userProvider->loadUserByUsername($credentials->attributes['fiscalNumber']);
+        return $userProvider->loadUserByUsername($credentials["attributes"]['fiscalNumber']);
     }
 
     /**
