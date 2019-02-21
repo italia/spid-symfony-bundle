@@ -82,11 +82,11 @@ spid_symfony:
 ```
 
 ## Step 2: (opzionale) salvataggio dell'utente 
-Se necessario è possibile salvare l'utente recuperato tramite PISD. Il punto più logico dove farlo è dentro l'Authenticator fornito, facendo override del metodo `getUser` e sfruttando i dati contenuti in `$credentials` per istanziare un nuovo utente da persistere
+Se necessario è possibile salvare l'utente recuperato tramite SPID. Il punto più logico dove farlo è dentro l'Authenticator fornito, facendo override del metodo `getUser` e sfruttando i dati contenuti in `$credentials` per istanziare un nuovo utente da persistere
 
 
 ## Overrides:
-Il template di login può essere sovrascritto mettendo il proprio in `app/Resources/SpidSymfonyBundle/views/Security/chooseidp.html.twig`
+Il template di login può essere sovrascritto mettendo il proprio in `app/Resources/SpidSymfonyBundle/views/security/chooseidp.html.twig`
 Per la documentazione relativa al pulsante SPID standard fare riferimento a https://github.com/italia/spid-smart-button
 Ce n'è una versione disponibile nel bundle per comodità di test in fase di sviluppo, la versione fornita va sostituita con quella valida al momento della messa in produzione.
 
