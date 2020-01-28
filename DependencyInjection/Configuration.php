@@ -13,8 +13,8 @@ class Configuration implements ConfigurationInterface
      */
     public function getConfigTreeBuilder()
     {
-        $treeBuilder = new TreeBuilder();
-        $rootNode = $treeBuilder->root('spid');
+        $treeBuilder = new TreeBuilder('spid');
+        $rootNode = $treeBuilder->getRootNode();
 
         $rootNode->children()
             ->scalarNode('sp_entityid')->isRequired()->cannotBeEmpty()->defaultValue('%spid_symfony.sp_entityid%')->end()
