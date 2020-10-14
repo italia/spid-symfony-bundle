@@ -78,6 +78,9 @@ spid_symfony:
   sp_assertionconsumerservice:
     - 'http://some.site.it/acs'
   sp_org_display_name: 'Sistema di Sviluppo'
+  sp_contact_ipa_code: 'ipa_code'
+  sp_contact_email: 'info@example.com'
+  sp_contact_phone: '123456789'
   idp_metadata_folder: '%kernel.root_dir%/../example/idp_metadata'
 ```
 

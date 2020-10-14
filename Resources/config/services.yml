@@ -30,5 +30,8 @@ services:
         sp_singlelogoutservice: '%spid.sp_singlelogoutservice%'
         sp_org_name: '%spid.sp_org_name%'
         sp_org_display_name: '%spid.sp_org_display_name%'
+        sp_contact_ipa_code: '%spid.sp_contact_ipa_code%'
+        sp_contact_email: '%spid.sp_contact_email%'
+        sp_contact_phone: '%spid.sp_contact_phone%'
         idp_metadata_folder: '%spid.idp_metadata_folder%/'
         sp_attributeconsumingservice: '%spid.sp_attributeconsumingservice%'
